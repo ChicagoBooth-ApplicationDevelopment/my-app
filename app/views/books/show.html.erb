@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Book #<%= @the_book.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/books">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_book/<%= @the_book.id %>">
+          Delete book
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_book.title %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @the_book.author %>
+      </dd>
+
+      <dt>
+        Isbn
+      </dt>
+      <dd>
+        <%= @the_book.isbn %>
+      </dd>
+
+      <dt>
+        List price
+      </dt>
+      <dd>
+        <%= @the_book.list_price %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_book.description %>
+      </dd>
+
+      <dt>
+        Seller
+      </dt>
+      <dd>
+        <%= @the_book.seller_id %>
+      </dd>
+
+      <dt>
+        Course info
+      </dt>
+      <dd>
+        <%= @the_book.course_info %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_book.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_book.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit book
+    </h2>
+
+    <form action="/modify_book/<%= @the_book.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_book.title %>">
+      </div>
+
+      <div>
+        <label for="author_box">
+          Author
+        </label>
+
+        <input type="text" id="author_box" name="query_author" value="<%= @the_book.author %>">
+      </div>
+
+      <div>
+        <label for="isbn_box">
+          Isbn
+        </label>
+
+        <input type="text" id="isbn_box" name="query_isbn" value="<%= @the_book.isbn %>">
+      </div>
+
+      <div>
+        <label for="list_price_box">
+          List price
+        </label>
+
+        <input type="text" id="list_price_box" name="query_list_price" value="<%= @the_book.list_price %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_book.description %></textarea>
+      </div>
+
+      <div>
+        <label for="seller_id_box">
+          Seller
+        </label>
+
+        <input type="text" id="seller_id_box" name="query_seller_id" value="<%= @the_book.seller_id %>">
+      </div>
+
+      <div>
+        <label for="course_info_box">
+          Course info
+        </label>
+
+        <textarea id="course_info_box" name="query_course_info"><%= @the_book.course_info %></textarea>
+      </div>
+
+      <button>
+        Update book
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
