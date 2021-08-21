@@ -55,6 +55,10 @@ class UserAuthenticationController < ApplicationController
       redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
     end
   end
+
+  def user_profile_form
+    render({ :template => "user_authentication/user_profile.html.erb" })
+  end
     
   def edit_profile_form
     render({ :template => "user_authentication/edit_profile.html.erb" })

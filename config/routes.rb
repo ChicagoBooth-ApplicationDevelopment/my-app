@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   # CREATE RECORD
   post("/insert_user", { :controller => "user_authentication", :action => "create"  })
       
-  # EDIT PROFILE FORM        
+  # EDIT PROFILE FORM     
+  get("/user_profile", { :controller => "user_authentication", :action => "user_profile_form"})   
   get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
   # UPDATE RECORD
   post("/modify_user", { :controller => "user_authentication", :action => "update" })
@@ -46,11 +47,10 @@ Rails.application.routes.draw do
              
   #------------------------------
 
-    get("/", { :controller => "general", :action => "homepage" })
+    get("/", { :controller => "application", :action => "homepage" })
 
-    get("/sign_up", { :controller => "users", :action => "sign_up_form" })
+    #get("/sign_up", { :controller => "users", :action => "sign_up_form" })
 
-    get("/insert_new_user", { :controller => "users", :action => "new_user_signup" })
-
+    #get("/insert_new_user", { :controller => "users", :action => "new_user_signup" })
 
 end

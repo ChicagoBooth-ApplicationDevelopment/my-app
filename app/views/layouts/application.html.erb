@@ -16,6 +16,25 @@
   </head>
 
   <body>
+    <nav>
+    <% if @current_user == nil %>
+    </div>
+      <a href="/user_sign_in">Sign in</a>
+      or
+      <a href="/user_sign_up">Register</a>
+    </div>
+
+    <% elsif @current_user != nil %>
+
+    <div>
+      <a href="/user_sign_out">Sign out</a>
+    </div>
+
+    <% end %>
+
+
+    </nav>
+
     <%= yield %>
   </body>
 </html>

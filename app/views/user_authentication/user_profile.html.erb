@@ -1,0 +1,26 @@
+<h1>My User Profile</h1>
+
+<div>
+<h3>Name:</h3><p><%=@current_user.first_name%> <%=@current_user.last_name%></p>
+<h3>Email:</h3><p><%=@current_user.email%></p>
+<h3>Alternate Contact Information:</h3><p><%=@current_user.alt_contact_info%></p>
+</div>
+
+<a href="/edit_user_profile">
+<button>Edit My Profile</button>
+</a>
+
+<div>
+<h2> Books Listed by You! </h2>
+<a href="/insert_book">
+<button>Add a New Book!</button>
+</a>
+</div>
+
+<div>
+<p align="center">
+<a href="/cancel_user_account">
+<button>Delete My Account</button>
+</a>
+</p>
+</div>
