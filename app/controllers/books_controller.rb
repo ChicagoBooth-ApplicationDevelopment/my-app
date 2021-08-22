@@ -30,6 +30,7 @@ class BooksController < ApplicationController
     the_book.description = params.fetch("query_description")
     the_book.seller_id = params.fetch("query_seller_id")
     the_book.course_info = params.fetch("query_course_info")
+    the_book.cover = params.fetch("query_cover_image")
 
     if the_book.valid?
       the_book.save

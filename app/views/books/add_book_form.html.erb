@@ -1,1 +1,62 @@
 <h1>Add a New Book Here!</h1>
+
+<form action="/insert_book" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div>
+    <p>
+    <label for="cover_image">Upload Image: </label>
+    <input type="file" id="query_cover_image" name="query_cover_image" class="form-control">
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>Title: </label>
+    <input type="text" id="query_title" name="query_title">
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>ISBN: </label>
+    <input type="text" id="query_isbn" name="query_isbn">
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>Author: </label>
+    <input type="text" id="query_author" name="query_author">
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>List Price: </label>
+    <input type="number" id="query_list_price" name="query_list_price" step="0.01" min="0.00">
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>Description: </label>
+    <textarea id="query_description" name="query_description"></textarea>
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>Related Course: </label>
+    <input id="query_course_info" name="query_course_info">
+    </p>
+    </div>
+
+    <div>
+    <p>
+    <label>Seller: </label>
+    <input id="query_seller_id" name="query_seller_id" value="<%=@current_user.first_name%> <%=@current_user.last_name%>">
+    </p>
+    </div>
+
+    <button>Add Book!</button>
+
+</form>
