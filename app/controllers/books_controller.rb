@@ -17,6 +17,10 @@ class BooksController < ApplicationController
     render({ :template => "books/show.html.erb" })
   end
 
+  def add_book_form
+    render({ :template => "books/add_book_form.html.erb"})
+  end
+
   def create
     the_book = Book.new
     the_book.title = params.fetch("query_title")

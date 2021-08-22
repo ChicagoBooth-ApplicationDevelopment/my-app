@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Routes for the Book resource:
 
   # CREATE
+  get("/add_book_form", { :controller => "books", :action => "add_book_form"})
   post("/insert_book", { :controller => "books", :action => "create" })
           
   # READ
