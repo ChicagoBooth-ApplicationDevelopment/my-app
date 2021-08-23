@@ -34,12 +34,26 @@ class BooksController < ApplicationController
     the_book.course_info = params.fetch("query_course_info")
     the_book.cover = params.fetch("query_cover_image")
 
-    if the_book.valid?
+    #what about combinations?
+    if the_book.title.present? == false
+      redirect_to("/add_book_form" , { :alert => "Missing info: Please enter a book title." })
+    elsif the_book.list_price.present? == false
+      redirect_to("/add_book_form", { :alert => "Missing info: Please enter a price." })
+    elsif the_book.author.present? == false
+      redirect_to("/add_book_form", { :alert => "Missing info: Please enter an author." })
+    elsif the_book.valid?
       the_book.save
       redirect_to("/books", { :notice => "Book created successfully." })
     else
       redirect_to("/books", { :notice => "Book failed to create successfully." })
     end
+
+    # if the_book.valid?
+    #   the_book.save
+    #   redirect_to("/books", { :notice => "Book created successfully." })
+    # else
+    #   redirect_to("/books", { :notice => "Book failed to create successfully." })
+    # end
   end
 
   def update
@@ -70,6 +84,16 @@ class BooksController < ApplicationController
 
     redirect_to("/books", { :notice => "Book deleted successfully."} )
   end
+
+  # def seller_name
+  #   seller_id = self.seller_id
+  #   matching_set = User.where({:id => seller_id})
+  #   the_one = matching_set.at(0)
+  #   return the_one
+  # end
+
+  #belongs_to(:seller, {:class_name => "User", :foreign_key => "seller_id"})
+
 
   #belongs_to(:seller, { :required => true, :class_name => "User", :foreign_key => "seller_id" })
   
