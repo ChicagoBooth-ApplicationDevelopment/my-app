@@ -1,8 +1,10 @@
 class BooksController < ApplicationController
   def index
-    matching_books = Book.all
+    #matching_books = Book.all
+    #@list_of_books = matching_books.order({ :created_at => :desc })
 
-    @list_of_books = matching_books.order({ :created_at => :desc })
+    @q = Book.ransack(params[:q])
+    @books = @q.result
 
     render({ :template => "books/index.html.erb" })
   end

@@ -8,16 +8,36 @@
 
 <hr>
 
+<%= search_form_for @q do |f| %>
+  <p><h3>Search a Book: </h3></p>
+
+  <div>
+    <%= f.label :title_cont, "Book Title: " %>
+    <%= f.text_field :title_cont, :placeholder => "Contains characters..." %>
+  </div>
+
+  <div>
+    <%= f.label :author_cont, "Author: " %>
+    <%= f.text_field :author_cont, :placeholder => "Contains name..." %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+  
+  <a href="/books">Clear filters</a>
+<% end %>
+
+<%#
+<hr>
 <div>
   <div>
     <h2>
-      Add a new book
+      <Add a new book>
     </h2>
 
     <form action="/insert_book" method="post">
       <div>
         <label for="title_box">
-          Title
+          <Title>
         </label>
 
         <input type="text" id="title_box" name="query_title">
@@ -25,7 +45,7 @@
 
       <div>
         <label for="author_box">
-          Author
+          <Author>
         </label>
 
         <input type="text" id="author_box" name="query_author">
@@ -33,7 +53,7 @@
 
       <div>
         <label for="isbn_box">
-          Isbn
+          <Isbn>
         </label>
 
         <input type="text" id="isbn_box" name="query_isbn">
@@ -41,7 +61,7 @@
 
       <div>
         <label for="list_price_box">
-          List price
+          <List price>
         </label>
 
         <input type="text" id="list_price_box" name="query_list_price">
@@ -49,7 +69,7 @@
 
       <div>
         <label for="description_box">
-          Description
+          <Description>
         </label>
 
         <textarea id="description_box" name="query_description" rows="3"></textarea>
@@ -57,7 +77,7 @@
 
       <div>
         <label for="seller_id_box">
-          Seller
+          <Seller>
         </label>
 
         <input type="text" id="seller_id_box" name="query_seller_id">
@@ -65,18 +85,19 @@
 
       <div>
         <label for="course_info_box">
-          Course info
+          <Course info>
         </label>
 
         <textarea id="course_info_box" name="query_course_info" rows="3"></textarea>
       </div>
 
       <button>
-        Create book
+        <Create book>
       </button>
     </form>
   </div>
 </div>
+%>
 
 <hr>
 <div>
@@ -127,7 +148,7 @@
         </th>
       </tr>
 
-      <% @list_of_books.each do |a_book| %>
+      <% @books.each do |a_book| %>
       <tr>
         <td>
           <%= a_book.id %>
