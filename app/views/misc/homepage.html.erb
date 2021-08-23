@@ -15,10 +15,10 @@
 <h3>Recently Added Books</h3>
 <% @booklist_5.each do |recent_book| %>
     <div class="card" style="width: 15rem;">
-        <img src="https://images.penguinrandomhouse.com/cover/9780739360385" class="card-img-top" alt="..." width="250" height="250">
+        <img src="<%=recent_book.cover%>" class="card-img-top" alt="..." width="250" height="250">
             <div class="card-body" align="center">
-                <h4 class="card-title"><%=recent_book.title%></h4>
-                <p class="card-text"><%=recent_book.list_price%></p>
+                <h4 class="card-title">Title: <%=recent_book.title%></h4>
+                <p class="card-text">Price: <%=recent_book.list_price%></p>
                 <a href="/books/<%=recent_book.id%>" class="btn btn-primary">Click for more details</a>
             </div>
     </div>

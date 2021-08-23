@@ -55,8 +55,7 @@
 
     <div>
     <p>
-    <label>Seller: </label>
-    <input id="query_seller_id" name="query_seller_id" value="<%=@current_user.first_name%> <%=@current_user.last_name%>">
+    <input type="hidden" id="query_seller_id" name="query_seller_id" value="<%=@current_user.id%>">
     </p>
     </div>
 
