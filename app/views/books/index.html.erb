@@ -107,15 +107,15 @@
 <hr>
 <div>
   <div>
-    <table>
-      <tr>
+    <table border="1">
+      <tr align="center">
         <th>
           Cover Image
         </th>
 
-        <th>
+        <%#th%>
           <%#ID%>
-        </th>
+        <%#/th%>
         
 
         <th>
@@ -127,11 +127,11 @@
         </th>
 
         <th>
-          Isbn
+          ISBN
         </th>
 
         <th>
-          List price
+          List Price
         </th>
 
         <th>
@@ -146,28 +146,28 @@
           Course info
         </th>
 
-        <th>
-          Created at
-        </th>
+        <%#th%>
+          <%#Created at%>
+        <%#/th%>
 
-        <th>
-          Updated at
-        </th>
+        <%#th%>
+          <%#Updated at%>
+        <%#/th%>
 
         <th>
         </th>
       </tr>
 
       <% @books.each do |a_book| %>
-      <tr>
+      <tr align="center">
         <td>
           <img src="<%= a_book.cover %>" class="img-responsive" width="200" height="200">
           <%#= a_book.cover %>
         </td>
 
-        <td>
+        <%#td%>
           <%#= a_book.id %>
-        </td>
+        <%#/td%>
         
 
         <td>
@@ -191,25 +191,31 @@
         </td>
 
         <td>
+        <% if session.fetch(:user_id) == nil %>
           <%#= User.all.where(:id => a_book.seller_id).at(0).first_name %>
           <%#= a_book.seller_name.first_name %>
           <%= a_book.seller_id %>
+        <% elsif session.fetch(:user_id) != nil %>
+          <%= User.where({:id => a_book.seller_id}).at(0).first_name %> <%= User.where({:id => a_book.seller_id}).at(0).last_name %>
+        <% end %>
         </td>
 
         <td>
           <%= a_book.course_info %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(a_book.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_book.updated_at) %> ago
-        </td>
+        <%#td%>
+          <%#= time_ago_in_words(a_book.created_at) %> 
+          <%#ago%>
+        <%#/td%>
+        <%#td%>
+          <%#= time_ago_in_words(a_book.updated_at) %> 
+          <%#ago%>
+        <%#/td%>
 
         <td>
           <a href="/books/<%= a_book.id %>">
-            Show details
+            More Info!
           </a>
         </td>
       </tr>

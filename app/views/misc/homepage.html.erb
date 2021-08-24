@@ -15,15 +15,19 @@
 </div>
 %>
 
+<div style="height: 2rem;">
+</div>
+
 <div align="center">
     <a href="/user_profile">My Profile</a>
     <a> | </a>
     <a href="/books">List of All Books</a>
 </div>
 
-<p align="center">Search Bar
+<div style="height: 1rem;">
+</div>
 
-</p>
+<p align="center">Search Bar??</p>
 
 <div>
 <h3>Recently Added Books</h3>
@@ -32,8 +36,8 @@
     <div class="card" style="width: 15rem;">
         <img src="<%=recent_book.cover%>" class="card-img-top" alt="..." width="250" height="250">
             <div class="card-body" align="center">
-                <h4 class="card-title">Title: <%=recent_book.title%></h4>
-                <p class="card-text">Price: <%=recent_book.list_price%></p>
+                <h5 class="card-title"><%=recent_book.title%></h5>
+                <p class="card-text">$<%=recent_book.list_price%></p>
                 <a href="/books/<%=recent_book.id%>" class="btn btn-primary">Click for more details</a>
             </div>
     </div>

@@ -35,37 +35,67 @@
   </head>
 
   <body>
-  <div class="container">
-    <nav>
-    <% if @current_user == nil %>
-    <div align="right">
-      <a href="/user_sign_in">Sign in</a>
-      or
-      <a href="/user_sign_up">Register</a>
-    </div>
+  <div class="container-fluid">
 
-    <div align="right">
-    <a href="/">Home</a>
-    </div>
+  <nav>
 
-    <% elsif @current_user != nil %>
+  <% if @current_user == nil %>
+  <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/user_sign_up">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/user_sign_in">Sign In</a>
+  </li>
+  </ul>
+  <% elsif @current_user != nil %>
+  <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/user_profile">My Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/user_sign_out">Sign Out</a>
+  </li>
+  </ul>
+  <% end %>
 
-    <div align="right">
-      <a href="/user_sign_out">Sign out</a>
-    </div>
+  </nav>
 
-    <div align="right">
-      <a href="/user_profile">My Profile</a>
-    </div>
+    <%#nav%>
+    <%# if @current_user == nil %>
+    <%#div align="right"%>
+      <%#a href="/user_sign_in">Sign in</a%>
+      <%#or%>
+      <%#a href="/user_sign_up">Register</a%>
+    <%#/div%>
 
-    <div align="right">
-      <a href="/">Home</a>
-    </div>
+    <%#div align="right"%>
+    <%#a href="/">Home</a%>
+    <%#/div%>
 
-    <% end %>
+    <%# elsif @current_user != nil %>
 
+    <%#div align="right"%>
+      <%#a href="/user_sign_out">Sign out</a%>
+    <%#/div%>
 
-    </nav>
+    <%#div align="right"%>
+      <%#a href="/user_profile">My Profile</a%>
+    <%#/div%>
+
+    <%#div align="right"%>
+      <%#a href="/">Home</a%>
+    <%#/div%>
+
+    <%# end %>
+
+    <%#/nav%>
 
     <%= yield %>
   </div>

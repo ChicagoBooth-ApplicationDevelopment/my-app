@@ -62,13 +62,6 @@
       </dd>
 
       <dt>
-        Seller
-      </dt>
-      <dd>
-        <%= @the_book.seller_id %>
-      </dd>
-
-      <dt>
         Course info
       </dt>
       <dd>
@@ -91,26 +84,36 @@
         <%# ago %> 
       </dd>
 
-      <%# if session.fetch(:user_id) == true %>
       <dt>
-        Seller Name:
+        Seller Name
       </dt>
       <dd>
-        <mark><%= @seller.first_name %> <%= @seller.last_name %>
+        <% if session.fetch(:user_id) != nil %>
+          <% @the_book.seller_id %>
+          <mark><%= @seller.first_name %> <%= @seller.last_name %></mark>
+        <% elsif session.fetch(:user_id) == nil %>      
+          <%= @the_book.seller_id %>
+        <% end %>
       </dd>
 
       <dt>
-      Seller Contact:
+        Seller Contact
       </dt>
       <dd>
-      <mark><%= @seller.email %></mark>
+        <% if session.fetch(:user_id) != nil %>
+          <mark><%= @seller.email %></mark>
+        <% elsif session.fetch(:user_id) == nil %>
+        <% end %>
       </dd>
 
       <dt>
-      Seller Alternative Contact:
+      Seller Alternative Contact
       </dt>
       <dd>
-      <%= @seller.alt_contact_info %>
+        <% if session.fetch(:user_id) != nil %>
+          <%= @seller.alt_contact_info %>
+        <% elsif session.fetch(:user_id) == nil %>
+        <% end %>
       </dd>
 
       <%# elsif session.fetch(:user_id) == false %>
