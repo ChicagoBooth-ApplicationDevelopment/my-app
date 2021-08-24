@@ -48,8 +48,8 @@ task({ :sample_data => :environment}) do
         #p Faker::Avatar.image
         #p book.cover
         book.description = Faker::Book.publisher
-        book.isbn = rand(1000)
-        book.list_price = rand(100)
+        book.isbn = rand.to_s[2..14]
+        book.list_price = rand(0.00 ... 399.99).round(2)
         book.title = Faker::Book.title
         book.seller_id = users.sample.id
 

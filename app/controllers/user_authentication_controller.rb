@@ -2,7 +2,6 @@ class UserAuthenticationController < ApplicationController
   # Uncomment this if you want to force users to sign in before any other actions
   # skip_before_action(:force_user_sign_in, { :only => [:create_cookie, :destroy_cookies, :create, :user_profile_form, :update, :destroy] })
 
-  #before_action(:load_current_user)
   skip_before_action(:force_user_sign_in, { :only => [:sign_in_form, :sign_up_form, :create_cookie, :create] })
 
   def sign_in_form

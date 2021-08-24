@@ -34,7 +34,7 @@
         <img src="<%=recent_book.cover%>" class="card-img-top" width="250" height="250">
             <div class="card-body" align="center">
                 <h5 class="card-title"><%=recent_book.title%></h5>
-                <p class="card-number">$<%=recent_book.list_price%></p>
+                <p class="card-number"><%=recent_book.list_price.to_s(:currency, { :precision => 2 })%></p>
                 <a href="/books/<%=recent_book.id%>" class="btn btn-primary">Click for more details</a>
             </div>
     </div>

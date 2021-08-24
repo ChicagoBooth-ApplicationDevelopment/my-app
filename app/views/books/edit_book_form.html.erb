@@ -38,7 +38,7 @@
         List price
       </label>
 
-      <input type="text" id="list_price_box" name="query_list_price" value="<%= @the_book.list_price %>">
+      <input type="text" id="list_price_box" name="query_list_price" value="<%= @the_book.list_price.to_s(:currency, { :precision => 2 }) %>">
     </div>
 
     <div>

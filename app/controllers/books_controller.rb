@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
 
-  #before_action(:load_current_user)
-  
   def index
     #matching_books = Book.all
     #@list_of_books = matching_books.order({ :created_at => :desc })
@@ -39,7 +37,7 @@ class BooksController < ApplicationController
     the_book.description = params.fetch("query_description")
     the_book.seller_id = params.fetch("query_seller_id")
     the_book.course_info = params.fetch("query_course_info")
-    the_book.cover = params.fetch("query_cover_image")
+    the_book.cover = params.fetch("query_cover_image", "")
 
     #what about combinations?
     # if the_book.title.present? == false

@@ -1,7 +1,14 @@
-<h1>My User Profile</h1>
+<h2>My User Profile</h2>
+
+<p>
+</p>
 
 <div>
-<h3>Name: <%=@current_user.first_name%> <%=@current_user.last_name%></h3>
+<div class="d-flex">
+<h4>Name: <span style="font-weight: 210;"><%=@current_user.first_name%> <%=@current_user.last_name%></span></h4>
+
+
+</div>
 <h3>Email: <%=@current_user.email%></h3>
 <h3>Alternate Contact Information: <%=@current_user.alt_contact_info%></h3>
 </div>

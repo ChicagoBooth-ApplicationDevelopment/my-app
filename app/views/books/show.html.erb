@@ -33,13 +33,18 @@
         <img src="<%= @the_book.cover %>" class="img-responsive" width="200" height="200">
       </dd>
 
-      <div>
-        <p align="left">
-        <a href="/edit_book/<%=@the_book.id%>">
-        <button type="button" class="btn btn-primary">Edit this Book</button>
-        </a>
-        </p>
-      </div>
+      <%if @the_book.seller_id == session.fetch(:user_id) %>
+        <div>
+          <p align="left">
+          <a href="/edit_book/<%=@the_book.id%>">
+          <button type="button" class="btn btn-primary">Edit this Book</button>
+          </a>
+          </p>
+        </div>
+      <% elsif @the_book.seller_id != session.fetch(:user_id) %>
+        <div>
+        </div>
+      <% end %>
 
       <dt>
         Author
