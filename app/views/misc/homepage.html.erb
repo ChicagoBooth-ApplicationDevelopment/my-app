@@ -1,5 +1,19 @@
-<h1>The Chicago Booth Book Exchange</h1>
-<h3>Buy and sell your used Booth textbooks here!</h3>
+<p>
+<div align="center">
+<%= notice %>
+</div>
+</p>
+
+<div align="center">
+    <h1>The Chicago Booth Book Exchange</h1>
+    <big class="text-muted">Buy and sell your used Booth textbooks here!</big>
+</div>
+
+<%#
+<div align="center">
+    <h5>Buy and sell your used Booth textbooks here!</h5>
+</div>
+%>
 
 <div align="center">
     <a href="/user_profile">My Profile</a>
@@ -7,12 +21,13 @@
     <a href="/books">List of All Books</a>
 </div>
 
-<p align="center">
-#Search bar here
+<p align="center">Search Bar
+
 </p>
 
 <div>
 <h3>Recently Added Books</h3>
+
 <% @booklist_5.each do |recent_book| %>
     <div class="card" style="width: 15rem;">
         <img src="<%=recent_book.cover%>" class="card-img-top" alt="..." width="250" height="250">
@@ -23,6 +38,7 @@
             </div>
     </div>
 <% end %>
+
 </div>
 
 

@@ -1,3 +1,8 @@
+<div align="center">
+<%= alert %>
+<%= notice %>
+</div>
+
 <div>
   <div>
     <h1>
@@ -104,14 +109,14 @@
   <div>
     <table>
       <tr>
-
         <th>
           Cover Image
         </th>
 
         <th>
-          ID
+          <%#ID%>
         </th>
+        
 
         <th>
           Title
@@ -156,13 +161,14 @@
       <% @books.each do |a_book| %>
       <tr>
         <td>
-          <img src="<%= a_book.cover %>" class="img-responsive" width="250" height="250">
+          <img src="<%= a_book.cover %>" class="img-responsive" width="200" height="200">
           <%#= a_book.cover %>
         </td>
 
         <td>
-          <%= a_book.id %>
+          <%#= a_book.id %>
         </td>
+        
 
         <td>
           <%= a_book.title %>
@@ -214,14 +220,17 @@
 
 <hr>
 
-<% Book.all do |a_book|%>
+
+<% Book.all do |a_book| %>
   <div class="card" style="width: 15rem;">
     <img src="<%= book.cover %>" class="img-responsive">
     #<img src="https://images.penguinrandomhouse.com/cover/9780739360385" class="card-img-top" alt="..." width="250" height="250">
+
     <div class="card-body" align="center">
       <h4 class="card-title"><%=a_book.title%></h4>
       <p class="card-text"><%=a_book.list_price%></p>
       <a href="/books/<%=a_book.id%>" class="btn btn-primary">Click for more details</a>
     </div>
+
   </div>
 <% end %>

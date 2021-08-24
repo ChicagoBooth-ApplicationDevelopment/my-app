@@ -1,6 +1,6 @@
 class UserAuthenticationController < ApplicationController
   # Uncomment this if you want to force users to sign in before any other actions
-  # skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
+  # skip_before_action(:force_user_sign_in, { :only => [:create_cookie, :destroy_cookies, :create, :user_profile_form, :update, :destroy] })
 
   def sign_in_form
     render({ :template => "user_authentication/sign_in.html.erb" })
@@ -57,6 +57,9 @@ class UserAuthenticationController < ApplicationController
   end
 
   def user_profile_form
+    # @current_user = session.fetch(:user_id)
+    @current_user_books = Book.where({ :seller_id => session.fetch(:user_id)})
+    
     render({ :template => "user_authentication/user_profile.html.erb" })
   end
     

@@ -1,10 +1,13 @@
 class BooksController < ApplicationController
+
+  before_action(:load_current_user)
+  
   def index
     #matching_books = Book.all
     #@list_of_books = matching_books.order({ :created_at => :desc })
 
     @q = Book.ransack(params[:q])
-    @books = @q.result
+    @books = @q.result.order({ :created_at => :desc })
 
     render({ :template => "books/index.html.erb" })
   end
@@ -52,8 +55,12 @@ class BooksController < ApplicationController
       the_book.save
       redirect_to("/books", { :notice => "Book created successfully." })
     else
-      redirect_to("/books", { :notice => "Book failed to create successfully." })
+      redirect_to("/add_book_form", { :alert => "Error! Please make sure that book image, title, price, and author(s) are filled out!" })
     end
+  end
+
+  def edit_book
+    render({ :template => "books/edit_book.html.erb" })
   end
 
   def update

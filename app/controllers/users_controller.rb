@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+    before_action(:load_current_user)
+    
     def sign_up_form
         render({ :template => "user_templates/sign_up.html.erb" })
     end

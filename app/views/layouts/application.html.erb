@@ -5,6 +5,8 @@
     <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
     <meta charset="utf-8">
 
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
     <!-- Connect Font Awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
@@ -33,26 +35,31 @@
   </head>
 
   <body>
+  <div class="container">
     <nav>
     <% if @current_user == nil %>
-    </div>
+    <div align="right">
       <a href="/user_sign_in">Sign in</a>
       or
       <a href="/user_sign_up">Register</a>
     </div>
 
-    <div>
+    <div align="right">
     <a href="/">Home</a>
     </div>
 
     <% elsif @current_user != nil %>
 
-    <div>
+    <div align="right">
       <a href="/user_sign_out">Sign out</a>
     </div>
 
-    <div>
-    <a href="/">Home</a>
+    <div align="right">
+      <a href="/user_profile">My Profile</a>
+    </div>
+
+    <div align="right">
+      <a href="/">Home</a>
     </div>
 
     <% end %>
@@ -61,5 +68,6 @@
     </nav>
 
     <%= yield %>
+  </div>
   </body>
 </html>

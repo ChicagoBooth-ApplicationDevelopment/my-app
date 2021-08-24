@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get("/books/:path_id", { :controller => "books", :action => "show" })
   
   # UPDATE
+  get("/edit_book", { :controller => "books", :action => "edit_book"})
   
   post("/modify_book/:path_id", { :controller => "books", :action => "update" })
   

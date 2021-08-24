@@ -1,20 +1,39 @@
 <h1>My User Profile</h1>
 
 <div>
-<h3>Name:</h3><p><%=@current_user.first_name%> <%=@current_user.last_name%></p>
-<h3>Email:</h3><p><%=@current_user.email%></p>
-<h3>Alternate Contact Information:</h3><p><%=@current_user.alt_contact_info%></p>
+<h3>Name: <%=@current_user.first_name%> <%=@current_user.last_name%></h3>
+<h3>Email: <%=@current_user.email%></h3>
+<h3>Alternate Contact Information: <%=@current_user.alt_contact_info%></h3>
 </div>
 
 <a href="/edit_user_profile">
 <button>Edit My Profile</button>
 </a>
 
+<hr>
+
 <div>
-<h2> Books Listed by You! </h2>
+<h2> Books Listed by You! </h2> 
+
+<div>
 <a href="/add_book_form">
-<button type="button" class="btn btn-outline-primary">Add a New Book!</button>
+<button type="button" class="btn btn-outline-primary">+ Add a New Book!</button>
 </a>
+</div>
+
+<div>
+<p>
+<% @current_user_books.each do |a_book| %>
+    <div class="card" style="width: 15rem;">
+        <img src="<%=a_book.cover%>" class="card-img-top" alt="..." width="250" height="250">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Title: <%=a_book.title%></h4>
+                <p class="card-text">Price: <%=a_book.list_price%></p>
+                <a href="/books/<%=a_book.id%>" class="btn btn-primary">Click for more details</a>
+            </div>
+    </div>
+<% end %>
+</p>
 </div>
 
 <div>
