@@ -14,10 +14,14 @@ class BooksController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
-
     matching_books = Book.where({ :id => the_id })
-
     @the_book = matching_books.at(0)
+
+    @seller = User.where({ :id => @the_book.seller_id}).at(0)
+    @seller_first_name = @seller.first_name
+    @seller_last_name = @seller.last_name
+    @seller_contact = @seller.email
+    @seller_alt_contact = @seller.alt_contact_info
 
     render({ :template => "books/show.html.erb" })
   end

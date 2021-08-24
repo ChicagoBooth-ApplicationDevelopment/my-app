@@ -10,15 +10,27 @@
 <div>
   <div>
     <h1>
-      Book #<%= @the_book.id %> details
+      <%= @the_book.title %>
+    </h1>
+
+    <h1>
+    <%#Book #<%= @the_book.id %> 
+      <%#details%>
     </h1>
 
     <dl>
       <dt>
-        Title
+        <%#Title%>
       </dt>
       <dd>
-        <%= @the_book.title %>
+        <%#= @the_book.title %>
+      </dd>
+
+      <dt>
+        
+      </dt>
+      <dd>
+        <img src="<%= @the_book.cover %>" class="img-responsive" width="200" height="200">
       </dd>
 
       <dt>
@@ -64,18 +76,49 @@
       </dd>
 
       <dt>
-        Created at
+        <%#Created at%>
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_book.created_at) %> ago
+        <%#= time_ago_in_words(@the_book.created_at)%>
+        <%# ago %>
       </dd>
 
       <dt>
-        Updated at
+        <%#Updated at%>
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_book.updated_at) %> ago
+        <%#= time_ago_in_words(@the_book.updated_at)%> 
+        <%# ago %> 
       </dd>
+
+      <%# if session.fetch(:user_id) == true %>
+      <dt>
+        Seller Name:
+      </dt>
+      <dd>
+        <mark><%= @seller.first_name %> <%= @seller.last_name %>
+      </dd>
+
+      <dt>
+      Seller Contact:
+      </dt>
+      <dd>
+      <mark><%= @seller.email %></mark>
+      </dd>
+
+      <dt>
+      Seller Alternative Contact:
+      </dt>
+      <dd>
+      <%= @seller.alt_contact_info %>
+      </dd>
+
+      <%# elsif session.fetch(:user_id) == false %>
+      <dt>
+      </dt>
+      <dd>
+      </dd>
+      <%# end %>
     </dl>
   </div>
 </div>
