@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     # for i in 0...5 do
     #   @booklist_5 = @booklist_5 + @list_of_books.at(i).to_a
     # end
-    @booklist_5 = @list_of_books.at(0...5)
+    @booklist_6 = @list_of_books.at(0...6)
 
     render({ :template => "misc/homepage.html.erb" })
   end
