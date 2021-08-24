@@ -21,20 +21,22 @@
 </a>
 </div>
 
-<div>
 <p>
+<div class="row">
 <% @current_user_books.each do |a_book| %>
-    <div class="card" style="width: 15rem;">
-        <img src="<%=a_book.cover%>" class="card-img-top" alt="..." width="250" height="250">
+    <div class="col-md-2">
+    <div class="card" style="width: 14.5rem;">
+        <img src="<%=a_book.cover%>" class="card-img-top" width="250" height="250">
             <div class="card-body" align="center">
                 <h5 class="card-title"><%=a_book.title%></h5>
                 <p class="card-text">$<%=a_book.list_price%></p>
                 <a href="/books/<%=a_book.id%>" class="btn btn-primary">Click for more details</a>
             </div>
     </div>
+    </div>
 <% end %>
-</p>
 </div>
+</p>
 
 <div>
 <p align="center">

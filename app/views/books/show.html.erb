@@ -27,11 +27,19 @@
       </dd>
 
       <dt>
-        
       </dt>
+
       <dd>
         <img src="<%= @the_book.cover %>" class="img-responsive" width="200" height="200">
       </dd>
+
+      <div>
+        <p align="left">
+        <a href="/edit_book/<%=@the_book.id%>">
+        <button type="button" class="btn btn-primary">Edit this Book</button>
+        </a>
+        </p>
+      </div>
 
       <dt>
         Author
@@ -51,7 +59,7 @@
         List price
       </dt>
       <dd>
-        <%= @the_book.list_price %>
+        <%= @the_book.list_price.to_s(:currency, { :precision => 2 }) %>
       </dd>
 
       <dt>

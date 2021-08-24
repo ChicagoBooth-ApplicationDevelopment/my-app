@@ -2,21 +2,15 @@ class UserAuthenticationController < ApplicationController
   # Uncomment this if you want to force users to sign in before any other actions
   # skip_before_action(:force_user_sign_in, { :only => [:create_cookie, :destroy_cookies, :create, :user_profile_form, :update, :destroy] })
 
-  before_action(:load_current_user)
-  #skip_before_action(:force_user_sign_in)
-
-  def force_user_sign_in
-    if @current_user == nil
-      redirect_to("/user_sign_in", {:alert => "Please sign in first."})
-    end
-  end
+  #before_action(:load_current_user)
+  skip_before_action(:force_user_sign_in, { :only => [:sign_in_form, :sign_up_form, :create_cookie, :create] })
 
   def sign_in_form
     render({ :template => "user_authentication/sign_in.html.erb" })
   end
 
   def create_cookie
-    user = User.where({ :email => params.fetch("query_email") }).first
+    user = User.where({ :email => params.fetch("query_email").downcase }).first
     
     the_supplied_password = params.fetch("query_password")
     
@@ -47,7 +41,7 @@ class UserAuthenticationController < ApplicationController
 
   def create
     @user = User.new
-    @user.email = params.fetch("query_email") + "@ChicagoBooth.edu"
+    @user.email = (params.fetch("query_email") + "@ChicagoBooth.edu").downcase
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")

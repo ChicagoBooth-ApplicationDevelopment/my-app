@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action(:load_current_user)
+  #before_action(:load_current_user)
   
   def index
     #matching_books = Book.all
@@ -64,7 +64,10 @@ class BooksController < ApplicationController
   end
 
   def edit_book
-    render({ :template => "books/edit_book.html.erb" })
+    the_id = params.fetch("path_id")
+    @the_book = Book.where({ :id => the_id }).at(0)
+
+    render({ :template => "books/edit_book_form.html.erb" })
   end
 
   def update
