@@ -31,10 +31,12 @@
 <div class="row">
 <% @booklist_6.each do |recent_book| %>
     <div class="col-md-2">
-    <div class="card"  style="width: 14.5rem;">
+    <div class="card"  style="width: 14.5rem; height: 25rem;">
         <img src="<%=recent_book.cover%>" class="card-img-top" width="250" height="250">
             <div class="card-body" align="center">
+            <span class="d-inline-block text-truncate" style="max-width: 190px;">
                 <h5 class="card-title"><%=recent_book.title%></h5>
+            </span>
                 <p class="card-number"><%=recent_book.list_price.to_s(:currency, { :precision => 2 })%></p>
                 <a href="/books/<%=recent_book.id%>" class="btn btn-primary">Click for more details</a>
             </div>

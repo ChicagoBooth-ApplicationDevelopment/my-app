@@ -66,6 +66,7 @@ class BooksController < ApplicationController
   def edit_book
     the_id = params.fetch("path_id")
     @the_book = Book.where({ :id => the_id }).at(0)
+    @the_book.cover.cache!
 
     render({ :template => "books/edit_book_form.html.erb" })
   end
@@ -74,7 +75,7 @@ class BooksController < ApplicationController
     the_id = params.fetch("path_id")
     the_book = Book.where({ :id => the_id }).at(0)
 
-    the_book.cover = params.fetch("query_cover_image")
+    the_book.cover = params.fetch("query_cover_image", "")
     the_book.title = params.fetch("query_title")
     the_book.author = params.fetch("query_author")
     the_book.isbn = params.fetch("query_isbn")
@@ -83,14 +84,14 @@ class BooksController < ApplicationController
     the_book.seller_id = params.fetch("query_seller_id")
     the_book.course_info = params.fetch("query_course_info")
 
-    p the_book.cover = params.fetch("query_cover_image")
-    p the_book.list_price = params.fetch("query_list_price")
+    p the_book.cover
+    p the_book.list_price
 
     if the_book.valid?
       the_book.save
       redirect_to("/books/#{the_book.id}", { :notice => "Book updated successfully."} )
     else
-      redirect_to("/books/#{the_book.id}", { :alert => "Book failed to update successfully." })
+      redirect_to("/books/#{the_book.id}", { :alert => the_book.errors.full_messages })
     end
   end
 

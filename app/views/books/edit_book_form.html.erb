@@ -17,9 +17,11 @@
     <div>
     <p>
       <label for="cover_image">Upload Image: </label>
-      <input type="file" id="cover_image" name="query_cover_image" class="form-control">
+      <input type="file" id="cover_image" name="query_cover_image" class="form-control" value="<%= @the_book.cover %>">
     </p>
     </div>
+
+    <%=@the_book.cover%>
 
     <div>
       <label for="title_box">
@@ -50,7 +52,7 @@
         List Price: 
       </label>
 
-      <input type="text" id="list_price_box" name="query_list_price" value="<%= @the_book.list_price.to_s(:currency, { :precision => 2 }) %>">
+      <input type="text" id="list_price_box" name="query_list_price" value="<%= @the_book.list_price %>">
     </div>
 
     <div>

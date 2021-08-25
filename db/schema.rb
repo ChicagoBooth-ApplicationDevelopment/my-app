@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_08_22_194025) do
     t.string "title"
     t.string "author"
     t.string "isbn"
-    t.float "list_price"
+    t.float "list_price", precision: 2
     t.text "description"
     t.integer "seller_id"
     t.text "course_info"
