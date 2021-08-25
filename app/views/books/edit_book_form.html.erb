@@ -1,12 +1,12 @@
 <nav>
-  <div>
+  <div style="padding-left: 20px; padding-bottom: 30px">
     <a href="/books/<%=@the_book.id%>">
       Go back
     </a>
   </div>
 </nav>
 
-<div>
+<div style="padding-left: 20px">
   <h2>
     Edit My Book
   </h2>
@@ -17,7 +17,7 @@
     <div>
     <p>
       <label for="cover_image">Upload Image: </label>
-      <input type="file" id="cover_image" name="query_cover_image" class="form-control" value="<%= @the_book.cover %>">
+      <input type="file" id="cover_image" name="query_cover_image" class="form-control" value="<%= @the_book.cover %>" style="width: 300px">
     </p>
     </div>
 

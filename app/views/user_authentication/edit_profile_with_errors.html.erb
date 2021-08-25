@@ -1,15 +1,19 @@
-<div >
-  <h5>
-    Edit User Account
-  </h5>
 
-  <% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |message| %>
-    <div class="alert">
-      <%= message %>
-    </div>
-  <% end %>
-  <% end %>
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |message| %>
+  <div class="alert">
+  <div class="alert alert-danger" role="alert">
+    <%= message %>
+  </div>
+  </div>
+<% end %>
+<% end %>
+
+<div style="padding-left: 20px">
+  <h2>
+    Edit User Account
+  </h2>
+  
   <div>
     <form action="/modify_user" method="post">
               
