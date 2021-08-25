@@ -75,7 +75,9 @@ class BooksController < ApplicationController
     the_id = params.fetch("path_id")
     the_book = Book.where({ :id => the_id }).at(0)
 
+    if params.fetch("query_cover_image", "") != ""
     the_book.cover = params.fetch("query_cover_image", "")
+    end
     the_book.title = params.fetch("query_title")
     the_book.author = params.fetch("query_author")
     the_book.isbn = params.fetch("query_isbn")

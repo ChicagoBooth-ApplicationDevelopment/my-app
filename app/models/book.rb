@@ -18,7 +18,7 @@ class Book < ApplicationRecord
     validates :list_price, :presence => true
     validates :title, :presence => true
     validates :author, :presence => true
-    #validates :cover, :presence => true
+    validates :cover, :presence => true
 
     mount_uploader :cover, CoverUploader
 
