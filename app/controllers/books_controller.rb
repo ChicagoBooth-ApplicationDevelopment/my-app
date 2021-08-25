@@ -93,7 +93,8 @@ class BooksController < ApplicationController
       the_book.save
       redirect_to("/books/#{the_book.id}", { :notice => "Book updated successfully."} )
     else
-      redirect_to("/books/#{the_book.id}", { :alert => the_book.errors.full_messages })
+      redirect_to("/books/#{the_book.id}", { :alert => "Book updated failed!" })
+      #the_book.errors.full_messages
     end
   end
 
