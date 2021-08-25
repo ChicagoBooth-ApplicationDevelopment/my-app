@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+  skip_before_action(:force_user_sign_in, { :only => [:index] })
+
   def index
     #matching_books = Book.all
     #@list_of_books = matching_books.order({ :created_at => :desc })
@@ -72,6 +74,7 @@ class BooksController < ApplicationController
     the_id = params.fetch("path_id")
     the_book = Book.where({ :id => the_id }).at(0)
 
+    the_book.cover = params.fetch("query_cover_image")
     the_book.title = params.fetch("query_title")
     the_book.author = params.fetch("query_author")
     the_book.isbn = params.fetch("query_isbn")
@@ -79,6 +82,9 @@ class BooksController < ApplicationController
     the_book.description = params.fetch("query_description")
     the_book.seller_id = params.fetch("query_seller_id")
     the_book.course_info = params.fetch("query_course_info")
+
+    p the_book.cover = params.fetch("query_cover_image")
+    p the_book.list_price = params.fetch("query_list_price")
 
     if the_book.valid?
       the_book.save

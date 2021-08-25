@@ -1,17 +1,29 @@
-<h1> Edit my Book Information </h2>
+<nav>
+  <div>
+    <a href="/books/<%=@the_book.id%>">
+      Go back
+    </a>
+  </div>
+</nav>
 
-<hr>
-
-<div>
 <div>
   <h2>
-    Edit book
+    Edit My Book
   </h2>
+  <hr>
 
-  <form action="/modify_book/<%= @the_book.id %>"  method="post" >
+  <form action="/modify_book/<%= @the_book.id %>" method="post" >
+
+    <div>
+    <p>
+      <label for="cover_image">Upload Image: </label>
+      <input type="file" id="cover_image" name="query_cover_image" class="form-control">
+    </p>
+    </div>
+
     <div>
       <label for="title_box">
-        Title
+        Title: 
       </label>
 
       <input type="text" id="title_box" name="query_title" value="<%= @the_book.title %>">
@@ -19,7 +31,7 @@
 
     <div>
       <label for="author_box">
-        Author
+        Author: 
       </label>
 
       <input type="text" id="author_box" name="query_author" value="<%= @the_book.author %>">
@@ -27,7 +39,7 @@
 
     <div>
       <label for="isbn_box">
-        Isbn
+        ISBN: 
       </label>
 
       <input type="text" id="isbn_box" name="query_isbn" value="<%= @the_book.isbn %>">
@@ -35,7 +47,7 @@
 
     <div>
       <label for="list_price_box">
-        List price
+        List Price: 
       </label>
 
       <input type="text" id="list_price_box" name="query_list_price" value="<%= @the_book.list_price.to_s(:currency, { :precision => 2 }) %>">
@@ -43,33 +55,28 @@
 
     <div>
       <label for="description_box">
-        Description
+        Description: 
       </label>
 
       <textarea id="description_box" name="query_description"><%= @the_book.description %></textarea>
     </div>
 
     <div>
-      <label for="seller_id_box">
-        Seller
-      </label>
-
-      <input type="text" id="seller_id_box" name="query_seller_id" value="<%= @the_book.seller_id %>">
+      <input type="hidden" id="seller_id_box" name="query_seller_id" value="<%= @the_book.seller_id %>">
     </div>
 
     <div>
       <label for="course_info_box">
-        Course info
+        Course Info: 
       </label>
 
       <textarea id="course_info_box" name="query_course_info"><%= @the_book.course_info %></textarea>
     </div>
 
     <button>
-      Update book
+      Update Book
     </button>
   </form>
-</div>
 </div>
 
 <hr>

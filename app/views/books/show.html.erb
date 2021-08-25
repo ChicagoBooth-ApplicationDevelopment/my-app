@@ -46,40 +46,40 @@
         </div>
       <% end %>
 
+      <div style="margin-top: 20px; margin-bottom: 5px; font-size: 20px">
       <dt>
-        Author
+        Author: 
+        <span style="font-weight: 400;"><%= @the_book.author %></span>
       </dt>
-      <dd>
-        <%= @the_book.author %>
-      </dd>
+      </div>
 
+      <div style="margin-bottom: 5px; font-size: 20px">
       <dt>
-        Isbn
+        ISBN: 
+        <span style="font-weight: 400;"><%= @the_book.isbn %></span>
       </dt>
-      <dd>
-        <%= @the_book.isbn %>
-      </dd>
+      </div>
 
+      <div style="margin-bottom: 5px; font-size: 20px">
       <dt>
-        List price
+        List Price: 
+        <span style="font-weight: 400;"><%= @the_book.list_price.to_s(:currency, { :precision => 2 }) %></span>
       </dt>
-      <dd>
-        <%= @the_book.list_price.to_s(:currency, { :precision => 2 }) %>
-      </dd>
+      </div>
 
+      <div style="margin-bottom: 5px; font-size: 20px">
       <dt>
-        Description
+        Description: 
+        <span style="font-weight: 400;"><%= @the_book.description %></span>
       </dt>
-      <dd>
-        <%= @the_book.description %>
-      </dd>
+      </div>
 
+      <div style="margin-bottom: 5px; font-size: 20px">
       <dt>
-        Course info
+        Course Info: 
+        <span style="font-weight: 400;"><%= @the_book.course_info %></span>
       </dt>
-      <dd>
-        <%= @the_book.course_info %>
-      </dd>
+      </div>
 
       <dt>
         <%#Created at%>
@@ -97,37 +97,43 @@
         <%# ago %> 
       </dd>
 
+      <div style="margin-bottom: 5px; font-size: 20px">
       <dt>
-        Seller Name
-      </dt>
-      <dd>
+        Seller Name:
+        <span style="font-weight: 400;">
         <% if session.fetch(:user_id) != nil %>
           <% @the_book.seller_id %>
           <mark><%= @seller.first_name %> <%= @seller.last_name %></mark>
         <% elsif session.fetch(:user_id) == nil %>      
           <%= @the_book.seller_id %>
         <% end %>
-      </dd>
-
-      <dt>
-        Seller Contact
+        </span>
       </dt>
-      <dd>
+      </div>
+
+      <div style="margin-bottom: 5px; font-size: 20px">
+      <dt>
+        Seller Contact: 
+        <span style="font-weight: 400;">
         <% if session.fetch(:user_id) != nil %>
           <mark><%= @seller.email %></mark>
         <% elsif session.fetch(:user_id) == nil %>
         <% end %>
-      </dd>
-
-      <dt>
-      Seller Alternative Contact
+        </span>
       </dt>
-      <dd>
-        <% if session.fetch(:user_id) != nil %>
+      </div>
+
+      <div style="margin-bottom: 5px; font-size: 20px">
+      <dt>
+      Seller Alternative Contact: 
+      <span style="font-weight: 400;">
+      <% if session.fetch(:user_id) != nil %>
           <%= @seller.alt_contact_info %>
-        <% elsif session.fetch(:user_id) == nil %>
-        <% end %>
-      </dd>
+      <% elsif session.fetch(:user_id) == nil %>
+      <% end %>
+      </span>
+      </dt>
+      </div>
 
       <%# elsif session.fetch(:user_id) == false %>
       <dt>
@@ -153,5 +159,3 @@
 <%end%>
 
 <hr>
-
-

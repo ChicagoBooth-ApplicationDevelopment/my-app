@@ -12,7 +12,7 @@ task({ :sample_data => :environment}) do
 
     10.times do
         user = User.new
-        user.alt_contact_info = "placeholder"
+        user.alt_contact_info = Faker::PhoneNumber.phone_number
         user.first_name = Faker::Name.first_name
         user.last_name = Faker::Name.last_name
         user.email = "#{user.first_name}@email.com"

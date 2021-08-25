@@ -60,7 +60,7 @@ class UserAuthenticationController < ApplicationController
 
   def user_profile_form
     # @current_user = session.fetch(:user_id)
-    @current_user_books = Book.where({ :seller_id => session.fetch(:user_id)})
+    @current_user_books = Book.where({ :seller_id => session.fetch(:user_id)}).order({:created_at => :desc})
     
     render({ :template => "user_authentication/user_profile.html.erb" })
   end
@@ -81,7 +81,7 @@ class UserAuthenticationController < ApplicationController
     if @user.valid?
       @user.save
 
-      redirect_to("/", { :notice => "User account updated successfully."})
+      redirect_to("/user_profile", { :notice => "User account updated successfully."})
     else
       render({ :template => "user_authentication/edit_profile_with_errors.html.erb" })
     end

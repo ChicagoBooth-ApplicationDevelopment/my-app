@@ -1,16 +1,26 @@
+<nav>
+  <div>
+    <a href="/">
+      Go back
+    </a>
+  </div>
+</nav>
+
 <h2>My User Profile</h2>
+
+<hr>
 
 <p>
 </p>
 
 <div>
 <div class="d-flex">
-<h4>Name: <span style="font-weight: 210;"><%=@current_user.first_name%> <%=@current_user.last_name%></span></h4>
-
-
+<h4>Name: <span style="font-weight: 240;"><%=@current_user.first_name%> <%=@current_user.last_name%></span></h4>
 </div>
-<h3>Email: <%=@current_user.email%></h3>
-<h3>Alternate Contact Information: <%=@current_user.alt_contact_info%></h3>
+
+
+<h4>Email: <span style="font-weight: 240;"><%=@current_user.email%></span></h4>
+<h4>Alt. Contact Info.: <span style="font-weight: 240;"><%=@current_user.alt_contact_info%></span></h4>
 </div>
 
 <a href="/edit_user_profile">
