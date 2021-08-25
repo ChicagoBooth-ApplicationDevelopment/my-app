@@ -49,7 +49,7 @@
             <span class="d-inline-block text-truncate" style="max-width: 190px;">
                 <h5 class="card-title"><%=a_book.title%></h5>
             </span>
-                <p class="card-text">$<%=a_book.list_price%></p>
+                <p class="card-text"><%=a_book.list_price.to_s(:currency, { :precision => 2 })%></p>
                 <a href="/books/<%=a_book.id%>" class="btn btn-primary">Click for more details</a>
             </div>
     </div>
