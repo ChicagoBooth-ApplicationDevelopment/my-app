@@ -66,7 +66,7 @@ class BooksController < ApplicationController
   def edit_book
     the_id = params.fetch("path_id")
     @the_book = Book.where({ :id => the_id }).at(0)
-    #@the_book.cover.cache!
+    ##@the_book.cover.cache!
 
     render({ :template => "books/edit_book_form.html.erb" })
   end
