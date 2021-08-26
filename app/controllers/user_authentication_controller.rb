@@ -40,6 +40,10 @@ class UserAuthenticationController < ApplicationController
 
   def create
     @user = User.new
+    @user.email = params.fetch("query_email")
+    if @user.email == nil
+      redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
+    elsif @user.email != nil
     @user.email = (params.fetch("query_email") + "@ChicagoBooth.edu").downcase
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
@@ -48,6 +52,7 @@ class UserAuthenticationController < ApplicationController
     @user.alt_contact_info = params.fetch("query_alt_contact_info")
 
     save_status = @user.save
+    end
 
     if save_status == true
       session[:user_id] = @user.id
